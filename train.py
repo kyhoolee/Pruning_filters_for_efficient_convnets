@@ -11,14 +11,17 @@ from optimizer import get_optimizer
 
 def train_network(args, network=None, data_set=None):
     device = torch.device("cuda" if args.gpu_no >= 0 else "cpu")
+    print("1. Finish check device: ", device)
 
     if network is None:
         network = VGG(args.vgg, args.data_set)
     network = network.to(device)
+    print("2. Finish create network")
 
     if data_set is None:
         data_set = get_data_set(args, train_flag=True)
-    
+    print("3. Finish load dataset")
+
     loss_calculator = Loss_Calculator()
     
     optimizer, scheduler = get_optimizer(network, args)

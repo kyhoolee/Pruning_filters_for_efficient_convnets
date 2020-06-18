@@ -51,10 +51,10 @@ def get_transformer(data_set, imsize=None, cropsize=None, crop_padding=None, hfl
 
 def get_data_set(args, train_flag=True):
     if train_flag:
-        data_set = torchvision.datasets.__dict__[args.data_set](root=args.data_path, train=True, 
+        data_set = torchvision.datasets.__dict__[args.data_set](root=args.data_path + args.data_set + '/' , train=True, 
                                        transform=get_transformer(args.data_set, args.imsize,
                                            args.cropsize, args.crop_padding, args.hflip), download=True)
     else:
-        data_set = torchvision.datasets.__dict__[args.data_set](root=args.data_path, train=False, 
+        data_set = torchvision.datasets.__dict__[args.data_set](root=args.data_path + args.data_set + '/', train=False, 
                                            transform=get_transformer(args.data_set), download=True)    
     return data_set

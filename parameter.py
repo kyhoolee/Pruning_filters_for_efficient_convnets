@@ -31,7 +31,7 @@ def build_parser():
                     help='Data set for training network', default='CIFAR10')
 
     parser.add_argument('--data-path', type=str,
-                    help='Path of dataset', default='../')
+                    help='Path of dataset', default='./data/')
 
     parser.add_argument('--vgg', type=str,
                     help='version of vgg network', default='vgg16_bn')
